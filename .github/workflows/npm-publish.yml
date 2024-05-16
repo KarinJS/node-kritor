@@ -23,7 +23,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Install protobufjs globally
-        run: npm install -g protobufjs
+        run: npm install -g protobufjs-cli
 
       - name: Build
         run: npm run build
