@@ -15,6 +15,7 @@
     "package.json"
   ],
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "pub": "npm publish --access public"
   }
 }
