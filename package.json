@@ -1,0 +1,20 @@
+{
+  "name": "kritor-proto",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "index.js",
+  "author": "CalmLexi",
+  "dependencies": {
+    "protobufjs": "^7.3.0"
+  },
+  "files": [
+    "protos/",
+    "kritor/",
+    "index.js",
+    ".gitmodules",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "node build.js"
+  }
+}
