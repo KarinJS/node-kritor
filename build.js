@@ -32,8 +32,8 @@ fs.mkdirSync('./protos')
 const jsFile = './protos/compiled.js'
 const tsFile = './protos/compiled.d.ts'
 const proto = protoFiles.join(' ')
-const jsCommand = `npx pbjs -t static-module -w es6 --keep-case -p ./kritor/protos -o ${jsFile} ${proto}`
-const tsCommand = `npx pbts -o ${tsFile} ${jsFile}`
+const jsCommand = `pbjs -t static-module -w es6 --keep-case -p ./kritor/protos -o ${jsFile} ${proto}`
+const tsCommand = `pbts -o ${tsFile} ${jsFile}`
 exec(jsCommand, (error, stdout, stderr) => {
   if (error) {
     console.error(`编译 .proto 文件时出错：${error.message}`)
