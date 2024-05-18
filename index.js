@@ -1,10 +1,9 @@
 import path from 'path'
+import { fileURLToPath } from 'url'
 import protobufjs from 'protobufjs'
 
-const filePath = import.meta.url.replace(/^file:(\/\/\/|\/\/)/, '') + '../'
-const absolutePath = path.resolve(filePath)
-const dirname = path.dirname(absolutePath)
-const proto = dirname + '/kritor/protos'
+const filePath = fileURLToPath(import.meta.url)
+const proto = path.dirname(filePath) + '/kritor/protos'
 
 export { protobufjs, proto }
 export * from './protos/compiled.js'
