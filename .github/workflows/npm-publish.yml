@@ -25,6 +25,12 @@ jobs:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
         if: ${{ steps.release.outputs.release_created }}
+      # 初始化子模块
+      - run: git submodule init
+        if: ${{ steps.release.outputs.release_created }}
+      # 更新子模块
+      - run: git submodule update --remote
+        if: ${{ steps.release.outputs.release_created }}
       # 安装 全局安装 protobufjs-cli
       - run: npm install -g protobufjs-cli
         if: ${{ steps.release.outputs.release_created }}
