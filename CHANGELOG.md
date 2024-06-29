@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/KarinJS/node-kritor/compare/v1.0.0...v1.0.1) (2024-06-29)
+
+
+### Bug Fixes
+
+* kritor/protos ([9118d89](https://github.com/KarinJS/node-kritor/commit/9118d89e05ee5cb98552ba9a9cb53af77de8af8e))
+
 ## 1.0.0 (2024-06-29)
 
 
