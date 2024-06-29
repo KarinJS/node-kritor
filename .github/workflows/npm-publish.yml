@@ -22,11 +22,11 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - name: 全局安装 typescript
-        run: npm install -g typescript
+      - name: 安装依赖
+        run: npm install
 
       - name: 编译index.ts
-        run: tsc
+        run: npx tsc
 
       - name: 全局安装 protobufjs-cli
         run: npm install -g protobufjs-cli
