@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "nodenext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": ".",
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node"]
+  },
+  "include": ["index.ts"],
+  "exclude": ["node_modules", "dist"]
+}

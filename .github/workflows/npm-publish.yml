@@ -14,21 +14,27 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Setup Node.js
+      - name: 设置 Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 20
           registry-url: "https://registry.npmjs.org/"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - name: Install protobufjs globally
+      - name: 全局安装 typescript
+        run: npm install -g typescript
+
+      - name: 编译index.ts
+        run: tsc
+
+      - name: 全局安装 protobufjs-cli
         run: npm install -g protobufjs-cli
 
-      - name: Build
+      - name: 编译 proto
         run: npm run build
 
-      - name: Publish to NPM
+      - name: 推送到 npm
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
