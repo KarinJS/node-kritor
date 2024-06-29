@@ -1,4 +1,4 @@
-name: Publish to NPM on Main Push
+name: Release and Publish
 
 on:
   push:
@@ -9,32 +9,36 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: google-github-actions/release-please-action@v3
+        id: release
         with:
-          submodules: recursive
-
-      - name: 设置 Node.js
-        uses: actions/setup-node@v2
+          release-type: node
+          package-name: kritor-proto
+      # 检出代码
+      - uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.release_created }}
+      # 设置 Node.js 环境
+      - uses: actions/setup-node@v3
         with:
           node-version: 20
-          registry-url: "https://registry.npmjs.org/"
+          registry-url: 'https://registry.npmjs.org'
+        if: ${{ steps.release.outputs.release_created }}
+      # 安装 全局安装 protobufjs-cli
+      - run: npm install -g protobufjs-cli
+        if: ${{ steps.release.outputs.release_created }}
+      # 安装依赖
+      - run: npm install
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-      - name: 安装依赖
-        run: npm install
-
-      - name: 全局安装 protobufjs-cli
-        run: npm install -g protobufjs-cli
-
-      - name: 编译 proto
-        run: npm run build
-
-      - name: 编译index.ts
-        run: npx tsc
-
-      - name: 推送到 npm
-        run: npm publish
+          NODE_AUTH_TOKEN: ${{ secrets.RELEASE }}
+        if: ${{ steps.release.outputs.release_created }}
+      # 构建输出
+      - run: npm run build
+        if: ${{ steps.release.outputs.release_created }}
+      # 编译ts文件
+      - run: npx tsc
+        if: ${{ steps.release.outputs.release_created }}
+      # 发布到 npm
+      - run: npm run publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: ${{ steps.release.outputs.release_created }}
