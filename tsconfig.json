@@ -8,9 +8,21 @@
     "declaration": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": ".",
-    "typeRoots": ["./node_modules/@types"],
-    "types": ["node"]
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "types": [
+      "node"
+    ]
   },
-  "include": ["index.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "index.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "protos",
+    "kritor",
+    ".github"
+  ]
 }

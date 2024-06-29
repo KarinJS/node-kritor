@@ -4,3 +4,4 @@ protos/compiled.d.ts
 protos/compiled.js
 pnpm-lock.yaml
 index.d.ts
+index.js

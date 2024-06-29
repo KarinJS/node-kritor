@@ -25,14 +25,14 @@ jobs:
       - name: 安装依赖
         run: npm install
 
-      - name: 编译index.ts
-        run: npx tsc
-
       - name: 全局安装 protobufjs-cli
         run: npm install -g protobufjs-cli
 
       - name: 编译 proto
         run: npm run build
+
+      - name: 编译index.ts
+        run: npx tsc
 
       - name: 推送到 npm
         run: npm publish
