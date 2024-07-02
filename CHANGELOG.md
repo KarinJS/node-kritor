@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/KarinJS/node-kritor/compare/v1.0.1...v1.0.2) (2024-07-02)
+
+
+### Bug Fixes
+
+* 推进proto版本 ([07d295e](https://github.com/KarinJS/node-kritor/commit/07d295e85e9857301276fecce1b6639687271a36))
+
 ## [1.0.1](https://github.com/KarinJS/node-kritor/compare/v1.0.0...v1.0.1) (2024-06-29)
 
 
