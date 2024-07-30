@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/KarinJS/node-kritor/compare/v1.0.2...v1.0.3) (2024-07-30)
+
+
+### Bug Fixes
+
+* 强制使用 number ([ca5a13b](https://github.com/KarinJS/node-kritor/commit/ca5a13b11c074cf009948665a10082277035a0a0))
+
 ## [1.0.2](https://github.com/KarinJS/node-kritor/compare/v1.0.1...v1.0.2) (2024-07-02)
 
 
