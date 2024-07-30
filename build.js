@@ -32,7 +32,7 @@ fs.mkdirSync('./protos')
 const jsFile = './protos/compiled.js'
 const tsFile = './protos/compiled.d.ts'
 const proto = protoFiles.join(' ')
-const jsCommand = `pbjs -t static-module -w es6 --keep-case -p ./kritor/protos -o ${jsFile} ${proto}`
+const jsCommand = `pbjs -t static-module -w es6 --keep-case -p ./kritor/protos --force-number -o ${jsFile} ${proto}`
 const tsCommand = `pbts -o ${tsFile} ${jsFile}`
 exec(jsCommand, (error, stdout, stderr) => {
   if (error) {
